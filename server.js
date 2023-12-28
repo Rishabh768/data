@@ -13,7 +13,7 @@ mongoose.connect(uri).then(e=>{
 
 
 app.get('/',(req,res)=>{
-    res.send(<h1>Server is running</h1>)
+    res.send("Server is running")
 })
 app.post('/signup',async(req,res)=>{
    // Extracting the data 

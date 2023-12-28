@@ -1,14 +1,20 @@
 const express=require('express')
 const app=express()
 const mongoose=require('mongoose')
+const cors=require('cors')
 const User=require('./userSchema')
 const Contact=require('./contactSchema')
 const uri = "mongodb+srv://rishabh768:HdKo8CI5XNoIFSoG@cluster0.osfrgnc.mongodb.net/mydatabase?retryWrites=true&w=majority"
 app.use(express.json())
+app.use(cors())
 mongoose.connect(uri).then(e=>{
     console.log('connected')
 }).catch(e=>{console.log(e)})
 
+
+app.get('/',(req,res)=>{
+    res.send(<h1>Server is running</h1>)
+})
 app.post('/signup',async(req,res)=>{
    // Extracting the data 
    const {username,email,password}=req.body;
